@@ -1,0 +1,75 @@
+``` mermaid
+
+    classDiagram
+
+      Préstamo -- Copia
+      Préstamo -- Socio
+
+      Copia "0..1" -- "0..3" Socio : lector
+
+      Socio "sancionado" -- "o..1 sanción" Multa : empleados
+
+      Copia "1.. ejemplar" --  Libro : libro
+      
+      Libro "1.. obra" --  Autor : autor
+
+      class Copia{
+        -referencia : Integer  
+        -estado : EstadoCopia  
+        +mostrar()
+      }
+
+      class Socio{
+        -numero : Integer
+        -nombre : String
+        -direccion : String
+        -telefono : String
+        +mostrar()
+      }
+
+      class Préstamo{
+        -Inicio : Date
+        -Fin : Date
+        +mostrar()
+      }
+
+      class Multa{
+        -inicio : Date
+        -fin : Date
+        +mostrar()
+      }
+
+      class Libro{
+        -titulo : String
+        -editorial : String
+        -year : Integer
+        -tipo : Genero
+        +mostrar()
+      }
+
+      class Autor{
+       -nombre : String
+       -nacionalidad : String
+       -fechaNacimiento : Date
+       +mostrar()
+      }
+
+      class EstadoCopia{
+      <<enumeration>>
+       -prestado
+       -retraso
+       -biblioteca
+       -reparación
+       +mostrar()
+      }
+
+      
+      class Género{
+      <<enumeration>>
+       -nombre : String
+       -nacionalidad : String
+       -fechaNacimiento : Date
+       +mostrar()
+      }    
+    end 
+```
