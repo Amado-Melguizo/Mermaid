@@ -1,0 +1,45 @@
+``` mermaid
+
+    classDiagram
+
+      Billete -- Vuelo
+      Billete -- persona
+
+      Vuelo "0..*" -- "0..3* pasajero" persona : viaja
+
+      Vuelo "0..*" -- "1" Avión : es realizado
+
+
+      class Billete{
+        -asiento : Integer  
+        +mostrar()
+      }
+
+      class Vuelo{
+        -plazas : Integer
+        -fecha : Date
+        +mostrar()
+      }
+
+      class Avión{
+        -modelo : String
+        -capacidad : Integer
+        +mostrar()
+      }
+
+      class Persona{
+        -nombre : String
+        -apellidos : String
+        -fechaNacimiento : Integer
+        -sexo : Genero
+        +mostrar()
+      }
+
+      class Género{
+      <<enumeration>>
+       -hombre
+       -mujer
+       +mostrar()
+      }    				   
+    end 
+```
