@@ -1,0 +1,43 @@
+``` mermaid
+
+    classDiagram
+      Persona <|-- Empleado
+      Persona <|-- Cliente
+      Cliente <|-- Empresa
+      Empleado <|-- Directivo
+
+      Directivo "0.." -- "0.." Empleado : subordinados
+
+      Empresa "0.." o-- "1.." Empleado : empleados
+
+      Empresa "1.." o-- "0.." Cliente : clientes
+
+      class Persona{
+        -nombre  
+        -edad  
+        +mostrar()
+      }
+
+      class Directivo{
+        -categoria
+        +Conjunto_empleados()
+        +mostrar()void
+      }
+
+      class Empleado{
+        -Sueldo_bruto
+        +mostrar()
+        +Calcular_salario_neto()
+      }
+
+      class Cliente{
+        -Telefono_de_contacto
+        +mostrar()
+      }
+
+      class Empresa{
+       -nombre
+       +mostrar()
+      }
+    end 
+```
