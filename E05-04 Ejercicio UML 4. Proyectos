@@ -1,0 +1,89 @@
+ ``` mermaid
+
+    classDiagram
+
+      Proyecto  o-- "1..*" Ciclo : {ordered}
+
+      Ciclo  --  Ejecutable
+
+      Ciclo  -- "4" Fase : {ordered}
+      
+      Fase o-- "1..*" Iteración : {ordered}
+      
+      Iteración -- "1..*" Artefacto : produce
+      
+      Artefacto  <|--  Documento
+            
+      Artefacto  <|-- Software
+
+      Iteración o-- "1..*" Actividad
+
+      Actividad "0..*" o-- "0..* " Recurso
+      
+      Humano  --|> Recurso
+      
+      Material  --|> Recurso
+
+      class Proyecto{
+        -nombre : String
+        - / avance : Float
+        +mostrar()
+      }
+
+      class TipoFase{
+        inicio
+        elaboración
+        construcción
+        transicion 
+        +mostrar()
+      }
+
+      class Ciclo{
+        +mostrar()
+      }
+
+      class Ejecutable{
+        -bytes
+        +mostrar()
+      }
+
+      class Fase{
+        -tipo : TipoFase
+        +mostrar()
+      }
+      class Iteración{
+        -comienzo
+        +mostrar()
+      }
+      class Artefacto{
+        -bytes
+        +mostrar()
+      }
+      class Documento{
+        -nombre : String
+        -ubicación
+        +mostrar()
+      }
+      class Software{
+        -bytes
+        +mostrar()
+      }
+      class Actividad{
+        -duración : Integer
+        -avance : Float
+        +mostrar()
+      }
+      class Recurso{
+        -bytes
+        +mostrar()
+      }
+      class Humano{
+        -bytes
+        +mostrar()
+      }
+      class Material{
+        -bytes
+        +mostrar()
+      }
+    end 
+```
